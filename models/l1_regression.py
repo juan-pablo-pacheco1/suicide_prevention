@@ -20,3 +20,14 @@ class L1Regression:
 
     def predict(self, X):
         return self.model.predict(X)
+
+    def score(self, X, y):
+        return self.model.score(X, y)
+
+    @property
+    def coef_(self):
+        return self.model.named_steps["lasso"].coef_
+
+    @property
+    def intercept_(self):
+        return self.model.named_steps["lasso"].intercept_
